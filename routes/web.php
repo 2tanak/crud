@@ -16,9 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/blog',[App\Http\Controllers\NewsController::class, 'index'])->name('blog');
 Route::group(['middleware' => ['auth:sanctum']], function () {
+Route::prefix('admin')->group(function() {
 Route::get('/', [App\Http\Controllers\AdminController::class, 'index'])->name('admin_index');
 Route::resource('blog', App\Http\Controllers\BlogController::class);
+});
 });
 Auth::routes();
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
