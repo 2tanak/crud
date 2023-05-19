@@ -3,14 +3,13 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Blog;
 use App\Models\Category;
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Blog>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
  */
-class BlogFactory extends Factory
+class CategoryFactory extends Factory
 {
-	protected $model = Blog::class;
+	protected $model = Category::class;
     /**
      * Define the model's default state.
      *
@@ -19,15 +18,9 @@ class BlogFactory extends Factory
     public function definition()
     {
         return [
-            'name'=> $this->faker->title(20),
-			'category_id'=>Category::get()->random()->id,
-			'text'=> $this->faker->text
+           'name'=> $this->faker->title(20),
+		   'text'=> $this->faker->text,
+		   //'photo'=> $this->faker->imageUrl(),
         ];
     }
 }
-
-
-
-
-
-

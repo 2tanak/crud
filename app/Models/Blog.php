@@ -17,10 +17,18 @@ class Blog extends Model
     {
         return $this->belongsTo(File::class, 'file_id');
     }
-
+	
+    public function category(){
+		return $this->belongsTo('App\Models\Category','category_id','id');
+	}	
+    
     function the_excerpt($text)
     {
         $text = preg_replace("~<img(.*)>~siU", "", $text);
         return substr(strip_tags($text), 0, 150);
     }
+	 public function author(): BelongsTo
+     {
+       return $this->belongsTo(User::class, 'author_id');
+     }
 }

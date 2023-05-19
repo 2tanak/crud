@@ -6,6 +6,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Blog;
 use App\Models\User;
+use App\Models\Category;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -15,8 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-		User::factory(1)->create();
-		Blog::factory(10)->create();
+		Category::factory(5)->create();
+		User::factory(5)->hasBlog(10)->create();
+		
+		//Blog::factory(10)->create();
 		
     }
 }

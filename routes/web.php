@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/',[App\Http\Controllers\IndexController::class, 'index'])->name('welcome');
 Route::get('/blog',[App\Http\Controllers\NewsController::class, 'index'])->name('blog');
 Route::group(['middleware' => ['auth:sanctum']], function () {
 Route::prefix('admin')->group(function() {

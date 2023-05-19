@@ -20,7 +20,7 @@ class UserFactory extends Factory
     {
         return [
             'name' => 'admin',
-            'email' => 'admin@mail.ru',
+            'email' => $this->faker->unique()->safeEmail,
             'password' => '$2y$10$BrW1HF70GvzFqcaA7hpKSueHlAAfO67SVyZ2s4hlaFMsyXoGl2A.q', // 
         ];
     }
